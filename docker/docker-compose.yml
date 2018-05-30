@@ -1,0 +1,32 @@
+web:
+    build: ./web
+    environment:
+     - DEVELOPMENT=true
+     - DBSERVER=db
+     - MEMCACHESERVER=memcache
+    links:
+     - db
+     - memcache
+     - mailhog
+    ports:
+     - "8080:80"
+    volumes:
+     - ../:/var/www
+     - ./web/xhgui_config.php:/usr/local/src/xhgui/config/config.php
+     
+db:
+    build: ./db
+    environment:
+     - MYSQL_ROOT_PASSWORD=Password1
+    volumes:
+     - ../db-bootstrap:/tmp/initsql
+    ports:
+     - "3307:3306"
+     
+memcache:
+    build: ./memcache
+    
+mailhog:
+    build: ./mailhog
+    ports:
+     - "1080:1080"
