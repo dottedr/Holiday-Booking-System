@@ -14,7 +14,7 @@
         <style>
             html, body {
                 background: linear-gradient(135deg, #4e4475, #2c5975);;
-                color: #636b6f;
+                color: #e0f2f1;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
@@ -50,7 +50,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #e0f2f1;
                 padding: 0 25px;
                 font-size: 12px;
                 font-weight: 600;
@@ -62,6 +62,8 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+
         </style>
     </head>
     <body>
