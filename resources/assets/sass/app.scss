@@ -11,8 +11,15 @@
 // general layout
 @import 'layout';
 
+// general layout
+@import 'side-menu';
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+.title {
+  font-size: 84px;
+  margin-bottom: 30px;
+}

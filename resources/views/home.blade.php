@@ -14,7 +14,10 @@
                         </div>
                     @endif
 
-                        you are logged in as a normal user
+                        <div id="app">
+                            <div></div>
+                            <div></div>
+                        </div>
                 </div>
             </div>
         </div>
