@@ -9,14 +9,19 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import FullCalendar from 'vue-full-calendar'
+Vue.use(FullCalendar);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+
 Vue.component('side-menu', require('./components/SideMenu.vue'));
 Vue.component('user-data', require('./components/UserData.vue'));
+Vue.component('calendar', require('./components/Calendar.vue'));
 
 
 const app = new Vue({

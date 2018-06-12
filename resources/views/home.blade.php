@@ -6,11 +6,8 @@
 
     <div class="container">
         <user-data></user-data>
-        <div class="row justify-content-center">
-            <div class="col-md-8">
 
-                </div>
-            </div>
+        <calendar></calendar>
         </div>
     </div>
 </div>
