@@ -4,10 +4,9 @@
         <div class="side-menu-opener"
              @click="toggle">{{openerText}}</div>
         <ul class="side-menu-menu">
-            <li class="side-menu-text"
-                >Hello, {{user.name}}</li>
-            <li class="side-menu-item"
-                >
+            <li class="side-menu-text">
+                Hello, {{user.name}}</li>
+            <li class="side-menu-home">
                 <a href="/home">Home</a>
             </li>
             <li class="side-menu-item"
@@ -38,12 +37,10 @@
                 },
                 openerText: 'Open',
                 isOpen: false,
-                home:'Home',
                 newRequest:'New holiday request',
                 manageRequests: 'Manage requests',
                 manageEmployees: 'Manage employees',
                 changePassword: 'Change password',
-                logout: 'Logout'
             }
 
         },

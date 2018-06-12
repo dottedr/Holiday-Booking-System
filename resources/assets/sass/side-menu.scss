@@ -35,6 +35,12 @@
 .side-menu-text{
   margin-bottom: 50px;
 }
+.side-menu-home{
+  margin-bottom: 20px;
+  a{
+    color: #384a81;
+  }
+}
 .side-menu-item{
   cursor: pointer;
 
@@ -47,9 +53,9 @@
     margin-top: 20px;
   }
 
-  route{
+  & .route{
     text-decoration: none;
-    a{
+    & a{
       color: #384a81;
     }
   }
