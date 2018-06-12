@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('holiday_allowance')->default(30);
             $table->integer('holiday_taken')->default(0);
-            $table->string('comment')->default(' ');
+            $table->string('comment',1000)->default(' ');
             $table->string('role')->default(' ');
             $table->rememberToken();
             $table->timestamps();

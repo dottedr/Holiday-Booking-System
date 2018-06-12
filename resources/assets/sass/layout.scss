@@ -111,3 +111,12 @@ input:focus ~ .highlight {
 .turquoise:hover{
   background-color: #80cbc4;
 }
+
+.tile{
+  border: solid #80cbc4;
+  height: 200px;
+  margin-top: 30px;
+  p{
+    align-items: center;
+  }
+}
