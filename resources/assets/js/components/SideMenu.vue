@@ -9,8 +9,9 @@
             <li class="side-menu-home">
                 <a href="/home">Home</a>
             </li>
-            <li class="side-menu-item"
-                v-text="newRequest"></li>
+            <li class="side-menu-home">
+                <a href="/newrequest">New holiday request</a>
+            </li>
             <li class="side-menu-item"
                 v-text="manageRequests"></li>
             <li class="side-menu-item"
