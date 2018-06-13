@@ -33,6 +33,7 @@
             return{
 
                 user:{
+                    id:'',
                     name:''
                 },
                 openerText: 'Open',
@@ -49,30 +50,32 @@
         },
 
         methods: {
-        open() {
-            this.openerText = 'Close';
-            this.isOpen = true;
-        },
-        close() {
-            this.openerText = 'Open';
-            this.isOpen = false;
-        },
-        toggle() {
-            if (this.isOpen) {
-                this.close();
-            } else {
-                this.open();
-            }
-        },
-        fetchUser(){
-            fetch('api/user/2') //TODO:id
-                .then(res => res.json())
-                .then(res => {
-                    console.log(res.name);
-                    this.user = res;
-                })
+            open() {
+                this.openerText = 'Close';
+                this.isOpen = true;
+            },
+            close() {
+                this.openerText = 'Open';
+                this.isOpen = false;
+            },
+            toggle() {
+                if (this.isOpen) {
+                    this.close();
+                } else {
+                    this.open();
+                }
+            },
+            fetchUser() {
+                fetch(`user`, { credentials: 'include' })
+                    .then(res => res.json())
+                    .then(res => {
+                        console.log(res.name);
+                        console.log(res.id);
+                        this.user = res;
+                    })
 
-        }
+            },
+
 
         }
     }

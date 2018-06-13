@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Auth\Middleware\Authenticate;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\User;
 use App\Http\Resources\User as UserResource;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -19,7 +21,7 @@ class UserController extends Controller
         //
         $users = User::all();
 
-        return $users::collection();
+        return $users;
         //TODO: get list of all users for manager view
     }
 
@@ -50,9 +52,18 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id=null)
     {
-        //
+        if ($id==null) {
+            //Auth::check()
+            $user = Auth::user();
+            $id = $user->id;
+
+        } else {
+            //id has been passed by user, check that id=current user id or current user is admin
+            //TODO: add security checks
+        }
+
         $user = User::findOrFail($id);
         return new UserResource($user);
     }

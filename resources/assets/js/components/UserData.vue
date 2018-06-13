@@ -36,16 +36,18 @@
                 user: {
                     name: '',
                     holiday_allowance:'',
-                    holiday_taken:''
+                    holiday_taken:'',
+                    id:''
                 }
             }
         },
         created(){
-            this.fetchUser();
+            this.fetchUserForDashboard();
         },
         methods: {
-            fetchUser() {
-                fetch('api/user/2') //TODO:id
+            fetchUserForDashboard() {
+                fetch(`/user`, { credentials: 'include' }
+                )
                     .then(res => res.json())
                     .then(res => {
                         console.log(res.name);
