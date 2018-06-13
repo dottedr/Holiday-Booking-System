@@ -24,4 +24,11 @@ Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('adm
 Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
 Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
 
+
 Route::get('/user','UserController@show');
+
+Route::get('publicholidays','PublicHolidayController@index');
+Route::get('publicholiday/{id}','PublicHolidayController@show');
+
+Route::get('holidayrequests','HolidayRequestController@index');
+Route::get('holidayrequest/{id}','HolidayRequestController@show');

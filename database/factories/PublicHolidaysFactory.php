@@ -15,8 +15,10 @@ use Faker\Generator as Faker;
 
 $factory->define(App\PublicHoliday::class, function (Faker $faker) {
     return array(
-        'name' => $faker->word,
-        'date' => $faker->date(),
+        'title' => $faker->word,
+        'start' => $faker->dateTimeBetween($startDate = '-1 year', $endDate = 'now', $timezone = null),
+        'end' => $faker->$startDate = '-1 year', $endDate = 'now', $timezone = null,
+        'color' => $faker->hexColor(),
         'duration' => $faker->numberBetween(1,3)
     );
 });

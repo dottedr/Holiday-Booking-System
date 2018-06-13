@@ -28,4 +28,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    public function holidayRequest()
+    {
+        return $this->hasMany('App\HolidayRequest', "id", "created_by");
+    }
 }

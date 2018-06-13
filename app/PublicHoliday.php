@@ -8,4 +8,8 @@ class PublicHoliday extends Model
 {
     public $timestamps = false;
 
+    protected $fillable = [
+        'name','date','duration'
+    ];
+
 }

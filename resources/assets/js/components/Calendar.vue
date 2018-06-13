@@ -1,6 +1,6 @@
 <template>
     <div class="row justify-content-center">
-        <full-calendar :config="config" :events="events"/>
+        <full-calendar :config="config" />
     </div>
 
 </template>
@@ -8,26 +8,13 @@
     @import '~fullcalendar/dist/fullcalendar.css';
 </style>
 <script>
-    import moment from 'moment'
     export default {
         name: 'calendar',
         data () {
             return {
-                events: [
-                    {
-                        title: 'test',
-                        allDay: true,
-                        start: moment(),
-                        end: moment().add(1, 'd'),
-                    },
-                    {
-                        title: 'another test',
-                        start: moment().add(2,'d'),
-                        end: moment().add(2, 'd').add(2, 'h'),
-                    },
-                ],
                 config: {
                     defaultView: 'month',
+                    eventSources:['/publicholidays','/holidayrequests'],
                     eventRender: function(event, element) {
                         console.log(event)
                     }

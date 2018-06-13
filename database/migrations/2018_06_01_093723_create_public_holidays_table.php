@@ -14,10 +14,13 @@ class CreatePublicHolidaysTable extends Migration
     public function up()
     {
         Schema::create('public_holidays', function (Blueprint $table) {
+            $table->increments('id')->unique();
+            $table->string('title',45);
+            $table->date( 'start');
+            $table->date( 'end');
+            $table->string( 'color');
 
-            $table->string('name',45)->unique();
-            $table->date( 'date');
-            $table->integer('duration');
+
 
         });
     }

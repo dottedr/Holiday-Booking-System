@@ -15,8 +15,8 @@ class CreateHolidayRequestTable extends Migration
     {
         Schema::create('holiday_request', function (Blueprint $table) {
             $table->increments('id')->index();
-            $table->date('from');
-            $table->date('to');
+            $table->date('start');
+            $table->date('end');
             $table->enum('type', ['paid','unpaid', 'sick leave']);
             $table->enum('status', ['pending','rejected', 'accepted']);
             $table->integer('created_by');
