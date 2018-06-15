@@ -10,7 +10,7 @@
 <script>
     export default {
         name: 'calendar',
-        data () {
+        data: function() {
             return {
                 config: {
                     defaultView: 'month',
@@ -19,8 +19,7 @@
                         console.log(event)
                     }
                 },
-            }
+            };
         }
-    }
-
+    };
 </script>

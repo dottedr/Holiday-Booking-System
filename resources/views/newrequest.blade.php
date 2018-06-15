@@ -5,7 +5,7 @@
     <side-menu></side-menu>
 
     <div class="container">
-        <user-data></user-data>
+        <new-request></new-request>
 
         <calendar></calendar>
         </div>

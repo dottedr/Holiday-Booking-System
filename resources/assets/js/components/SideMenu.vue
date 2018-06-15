@@ -12,12 +12,15 @@
             <li class="side-menu-home">
                 <a href="/newrequest">New holiday request</a>
             </li>
-            <li class="side-menu-item"
-                v-text="manageRequests"></li>
-            <li class="side-menu-item"
-                v-text="manageEmployees"></li>
-            <li class="side-menu-item"
-                v-text="changePassword"></li>
+            <li class="side-menu-home">
+                <a href="#">Manage requests</a>
+            </li>
+            <li class="side-menu-home">
+                <a href="#">Manage employees</a>
+            </li>
+            <li class="side-menu-home">
+                <a href="#">Change password</a>
+            </li>
             <li class="side-menu-item">
                 <form method="POST" class="route" id="logout_form" action="/logout">
                     <a  href="javascript:logout_form.submit();">Logout</a>
@@ -30,7 +33,7 @@
 <script>
     export default {
         name: "side-menu",
-        data(){
+        data: function(){
             return{
 
                 user:{
@@ -39,35 +42,32 @@
                 },
                 openerText: 'Open',
                 isOpen: false,
-                newRequest:'New holiday request',
-                manageRequests: 'Manage requests',
-                manageEmployees: 'Manage employees',
-                changePassword: 'Change password',
-            }
+
+            };
 
         },
-        created(){
+        created: function(){
             this.fetchUser();
         },
 
         methods: {
-            open() {
+            open: function() {
                 this.openerText = 'Close';
                 this.isOpen = true;
             },
-            close() {
+            close: function() {
                 this.openerText = 'Open';
                 this.isOpen = false;
             },
-            toggle() {
+            toggle: function() {
                 if (this.isOpen) {
                     this.close();
                 } else {
                     this.open();
                 }
             },
-            fetchUser() {
-                fetch(`user`, { credentials: 'include' })
+            fetchUser: function() {
+                fetch('user', { credentials: 'include' })
                     .then(res => res.json())
                     .then(res => {
                         console.log(res.name);
@@ -76,12 +76,6 @@
                     })
 
             },
-
-
         }
     }
 </script>
-
-<style scoped>
-
-</style>

@@ -17,11 +17,16 @@ Vue.use(FullCalendar);
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+import SideMenu from './components/SideMenu.vue';
+import UserData from './components/UserData.vue';
+import Calendar from './components/Calendar.vue';
+import NewRequest from './components/NewRequest.vue';
 
+Vue.component('side-menu', SideMenu);
+Vue.component('user-data', UserData);
+Vue.component('calendar', Calendar);
+Vue.component('new-request', NewRequest);
 
-Vue.component('side-menu', require('./components/SideMenu.vue'));
-Vue.component('user-data', require('./components/UserData.vue'));
-Vue.component('calendar', require('./components/Calendar.vue'));
 
 
 const app = new Vue({

@@ -18,7 +18,11 @@
     "laravel-mix": "^2.0",
     "lodash": "^4.17.4",
     "popper.js": "^1.12",
-    "vue": "^2.5.7"
+    "vue": "^2.5.7",
+    "vue-loader": "~14.2.3",
+    "vue-style-loader": "^4.1.0",
+    "vue-template-compiler": "^2.5.7",
+    "vuetify": "^1.0.19"
   },
   "dependencies": {
     "vue-full-calendar": "^4.0.0-0"

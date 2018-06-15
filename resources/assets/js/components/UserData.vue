@@ -30,7 +30,7 @@
 <script>
     export default {
         name: "user-data",
-        data() {
+        data: function() {
             return {
 
                 user: {
@@ -41,12 +41,12 @@
                 }
             }
         },
-        created(){
+        created: function(){
             this.fetchUserForDashboard();
         },
         methods: {
             fetchUserForDashboard() {
-                fetch(`/user`, { credentials: 'include' }
+                fetch('/user', { credentials: 'include' }
                 )
                     .then(res => res.json())
                     .then(res => {
@@ -58,7 +58,3 @@
         }
     }
 </script>
-
-<style scoped>
-
-</style>
