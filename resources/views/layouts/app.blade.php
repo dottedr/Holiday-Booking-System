@@ -27,7 +27,9 @@
     <div >
 
         <main class="gradient">
+            <div id="app">
             @yield('content')
+            </div>
         </main>
     </div>
 </body>

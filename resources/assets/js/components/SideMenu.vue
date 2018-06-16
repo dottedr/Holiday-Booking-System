@@ -13,12 +13,6 @@
                 <a href="/newrequest">New holiday request</a>
             </li>
             <li class="side-menu-home">
-                <a href="#">Manage requests</a>
-            </li>
-            <li class="side-menu-home">
-                <a href="#">Manage employees</a>
-            </li>
-            <li class="side-menu-home">
                 <a href="#">Change password</a>
             </li>
             <li class="side-menu-item">
