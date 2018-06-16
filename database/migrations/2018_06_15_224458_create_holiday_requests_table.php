@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHolidayRequestTable extends Migration
+class CreateHolidayRequestsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateHolidayRequestTable extends Migration
      */
     public function up()
     {
-        Schema::create('holiday_request', function (Blueprint $table) {
+        Schema::create('holiday_requests', function (Blueprint $table) {
             $table->increments('id')->index();
             $table->date('start');
             $table->date('end');
@@ -31,6 +31,6 @@ class CreateHolidayRequestTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('holiday_request');
+        Schema::dropIfExists('holiday_requests');
     }
 }

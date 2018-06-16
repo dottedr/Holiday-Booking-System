@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\HolidayRequest;
 use Illuminate\Http\Request;
+use App\Http\Resources\HolidayRequest as HolidayRequestResource;
 
 class HolidayRequestController extends Controller
 {
@@ -39,7 +40,17 @@ class HolidayRequestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $holidayrequest=$request->isMethod('put') ? HolidayRequest::findOrFail($request->id) : new HolidayRequest;
+        $holidayrequest->id = $request->input('id');
+        $holidayrequest->title = $request->input('start');
+        $holidayrequest->body = $request->input('end');
+        $holidayrequest->body = $request->input('body');
+        $holidayrequest->body = $request->input('title');
+
+        if($holidayrequest->save()) {
+            return new HolidayRequestResource($holidayrequest);
+        }
+
     }
 
     /**

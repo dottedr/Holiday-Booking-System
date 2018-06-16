@@ -8,7 +8,7 @@
 {
   padding-top: 300px;
 }
-
+/*
 input 				{
   font-size:18px;
   padding:10px 10px 10px 5px;
@@ -20,7 +20,7 @@ input 				{
 }
 input:focus 		{ outline:none; }
 
-/* LABEL ======================================= */
+!* LABEL ======================================= *!
 label 				 {
   color:#e0f2f1;
   font-size:18px;
@@ -34,14 +34,14 @@ label 				 {
   -webkit-transition:0.2s ease all;
 }
 
-/* active state */
+!* active state *!
 input:focus ~ label, input:valid ~ label 		{
   top:-20px;
   font-size:14px;
   color:#80cbc4;
 }
 
-/* BOTTOM BARS ================================= */
+!* BOTTOM BARS ================================= *!
 .bar 	{ position:relative; display:block; width:500px; }
 .bar:before, .bar:after 	{
   content:'';
@@ -61,12 +61,12 @@ input:focus ~ label, input:valid ~ label 		{
   right:50%;
 }
 
-/* active state */
+!* active state *!
 input:focus ~ .bar:before, input:focus ~ .bar:after {
   width:50%;
 }
 
-/* HIGHLIGHTER ================================== */
+!* HIGHLIGHTER ================================== *!
 .highlight {
   position:absolute;
   height:60%;
@@ -77,14 +77,14 @@ input:focus ~ .bar:before, input:focus ~ .bar:after {
   opacity:0.5;
 }
 
-/* active state */
+!* active state *!
 input:focus ~ .highlight {
   -webkit-animation:inputHighlighter 0.3s ease;
   -moz-animation:inputHighlighter 0.3s ease;
   animation:inputHighlighter 0.3s ease;
 }
 
-/* ANIMATIONS ================ */
+!* ANIMATIONS ================ *!
 @-webkit-keyframes inputHighlighter {
   from { background:#80cbc4; }
   to 	{ width:0; background:transparent; }
@@ -110,7 +110,7 @@ input:focus ~ .highlight {
 }
 .turquoise:hover{
   background-color: #80cbc4;
-}
+}*/
 
 .tile{
   border: solid #80cbc4;
@@ -118,4 +118,8 @@ input:focus ~ .highlight {
   margin-top: 30px;
   text-align: center;
 
+}
+.row {
+  padding-bottom: 20px;
+  padding-top: 20px;
 }

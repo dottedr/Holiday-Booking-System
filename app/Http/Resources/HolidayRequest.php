@@ -14,7 +14,14 @@ class HolidayRequest extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'start'=>$this->start,
+            'end'=>$this->end,
+            'title'=>$this->title,
+            'body'=>$this->body,
+           // 'start'=>$this->start,
+        ];
+
     }
     //TODO:
     public function with($request)

@@ -33,3 +33,4 @@ Route::get('publicholiday/{id}','PublicHolidayController@show');
 
 Route::get('holidayrequests','HolidayRequestController@index');
 Route::get('holidayrequest/{id}','HolidayRequestController@show');
+Route::post('newholidayrequest','HolidayRequestController@store');

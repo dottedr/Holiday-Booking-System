@@ -15,11 +15,21 @@
                 config: {
                     defaultView: 'month',
                     eventSources:['/publicholidays','/holidayrequests'],
+
                     eventRender: function(event, element) {
                         console.log(event)
-                    }
+                    },
+                    dayClick:function(date) {
+                        console.log('clicked ' + date.format());
+
+
+                    },
                 },
             };
+
+        },
+        methods: {
+
         }
     };
 </script>
