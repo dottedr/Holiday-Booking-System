@@ -50,7 +50,7 @@
                 )
                     .then(res => res.json())
                     .then(res => {
-                        console.log(res.name);
+                        console.log('User data fetched:'+res.name);
                         this.user = res;
                     })
 

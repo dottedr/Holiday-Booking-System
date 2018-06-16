@@ -2,26 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Auth\Middleware\Authenticate;
 use Illuminate\Http\Request;
+
+
+use Illuminate\Auth\Middleware\Authenticate;
 use App\Http\Requests;
 use App\User;
-use App\Http\Resources\User as UserResource;
+use App\Http\Resources\User as EmployeeResource;
 use Illuminate\Support\Facades\Auth;
 
-class UserController extends Controller
+class EmployeeController extends Controller
 {
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -29,10 +20,13 @@ class UserController extends Controller
      */
     public function index()
     {
-
-        return view('team');
+        $employee = User::all();
+        return Response()->json($employee);
     }
-
+    //public function view()
+    //{
+    //    return view('team/member');
+    //}
     /**
      * Show the form for creating a new resource.
      *
@@ -60,20 +54,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id=null)
+    public function show($id)
     {
-        if ($id==null) {
-            //Auth::check()
-            $user = Auth::user();
-            $id = $user->id;
-
-        } else {
-            //id has been passed by user, check that id=current user id or current user is admin
-            //TODO: add security checks
-        }
-
-        $user = User::findOrFail($id);
-        return new UserResource($user);
+        $employee=User::findOrFail($id);
+        return $employee;
     }
 
     /**

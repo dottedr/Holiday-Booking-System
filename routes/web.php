@@ -28,6 +28,19 @@ Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
 
 Route::get('/user','UserController@show');
 
+
+//show team view
+Route::get('/team','UserController@index');
+//show team member view
+//Route::get('/team/member', 'EmployeeController@view')->name('team/member');
+
+//list employee
+Route::get('/employee/{id}','EmployeeController@show');
+//list all employees
+Route::get('/employees','EmployeeController@index');
+
+
+
 Route::get('publicholidays','PublicHolidayController@index');
 Route::get('publicholiday/{id}','PublicHolidayController@show');
 

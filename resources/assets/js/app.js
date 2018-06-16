@@ -21,11 +21,14 @@ import SideMenu from './components/SideMenu.vue';
 import UserData from './components/UserData.vue';
 import Calendar from './components/Calendar.vue';
 import NewRequest from './components/NewRequest.vue';
+import Team from './components/Team.vue';
 
 Vue.component('side-menu', SideMenu);
 Vue.component('user-data', UserData);
 Vue.component('calendar', Calendar);
 Vue.component('new-request', NewRequest);
+Vue.component('team', Team);
+
 
 
 
