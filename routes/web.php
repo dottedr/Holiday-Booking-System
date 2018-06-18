@@ -25,18 +25,21 @@ Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('adm
 Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
 Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
 
-
+//data for side menu
 Route::get('/user','UserController@show');
+//admin data for side menu
 
 
-//show team view
+
+//show team view for admin
 Route::get('/team','UserController@index');
-//show team member view
-//Route::get('/team/member', 'EmployeeController@view')->name('team/member');
 
-//list employee
+//show team member view
+//Route::get('/team/member', 'EmployeeController@view')->name('team.member');
+
+//list employee TODO:how to get employee by id
 Route::get('/employee/{id}','EmployeeController@show');
-//list all employees
+//list all employees, mock in user view
 Route::get('/employees','EmployeeController@index');
 
 

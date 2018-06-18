@@ -18,15 +18,26 @@ class EmployeeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth'); //admin?
+    }
+
+
     public function index()
     {
-        $employee = User::all();
-        return Response()->json($employee);
+        $isadmin = Auth::user()->isadmin;
+        if($isadmin==1) {
+            $employee = User::all();
+            return Response()->json(array("status"=>true, "data"=>$employee));
+            //return $employee;
+        }
+        else{
+            return Response()->json(array("status"=>false));
+        }
+
     }
-    //public function view()
-    //{
-    //    return view('team/member');
-    //}
+
     /**
      * Show the form for creating a new resource.
      *

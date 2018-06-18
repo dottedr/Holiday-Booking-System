@@ -19,7 +19,7 @@ class UserController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth');//or just auth
     }
 
     /**
@@ -64,7 +64,7 @@ class UserController extends Controller
     {
         if ($id==null) {
             //Auth::check()
-            $user = Auth::user();
+            $user = Auth::user();//return eloquent model
             $id = $user->id;
 
         } else {

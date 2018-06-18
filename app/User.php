@@ -17,7 +17,7 @@ class User extends Authenticatable
      */
     protected $guard = 'web';
     protected $fillable = [
-        'name', 'email', 'password', 'holiday_allowance', 'holidays_taken', 'comment', 'role'
+        'name',  'email', 'password', 'holiday_allowance', 'holidays_taken', 'comment', 'role'
     ];
 
     /**
@@ -26,7 +26,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'isadmin', 'password', 'remember_token',
     ];
     public function holidayRequest()
     {
