@@ -12,14 +12,42 @@ class HolidayRequestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index()//
     {
         //mapping title to user.name
         $holiday = array_map(
-            function($hol) { $hol['title']=$hol['user']['name']; unset($hol['user']); return $hol; }
-            , HolidayRequest::with("user")->get()->toArray()
-        ); //TODO how to return only with status=accepted
+            function($hol)
+                {
+                $hol['title']=$hol['user']['name'];
+                unset($hol['user']); return $hol;
+                },
+            HolidayRequest::with("user")->get()->toArray()
+        );
+
         return Response()->json($holiday);
+    }
+
+    public function indexCalendar()//
+    {
+
+        //mapping title to user.name
+        $holiday = array_map(
+            function($hol)
+            {
+                $hol['title']=$hol['user']['name'];
+                unset($hol['user']); return $hol;
+            },
+            HolidayRequest::with("user")->where('status', 'accepted')->get()->toArray()
+        );
+        
+        if (count($holiday)>0){
+            return Response()->json($holiday);
+        }
+        else{
+            return Response()->json(array("how did it go"=>'so so'));
+        }
+
+
     }
 
     /**

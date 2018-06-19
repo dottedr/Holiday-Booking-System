@@ -14,16 +14,16 @@
             return {
                 config: {
                     defaultView: 'month',
-                    eventSources:['/publicholidays','/holidayrequests'],
+                    eventSources:['/publicholidays','/holidayrequestscalendar'],
 
                     eventRender: function(event, element) {
                         console.log(event)
                     },
-                    dayClick:function(date) {
+                    /*  //log a click
+                        dayClick:function(date) {
                         console.log('clicked ' + date.format());
 
-
-                    },
+                    },*/
                 },
             };
 

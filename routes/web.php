@@ -27,7 +27,7 @@ Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
 
 //data for side menu
 Route::get('/user','UserController@show');
-//admin data for side menu
+//TODO: admin data for side menu
 
 
 
@@ -48,9 +48,11 @@ Route::get('/employees','EmployeeController@index');
 Route::get('publicholidays','PublicHolidayController@index');
 Route::get('publicholiday/{id}','PublicHolidayController@show');
 
-Route::get('holidayrequests','HolidayRequestController@index');
+Route::get('holidayrequests','HolidayRequestController@index');//list for request view and calendar
+Route::get('holidayrequestscalendar','HolidayRequestController@indexCalendar');
 Route::get('holidayrequest/{id}','HolidayRequestController@show');
 
 Route::post('newholidayrequest','HolidayRequestController@store');
 
+//display new request view
 Route::get('/viewrequests', 'ManageRequestViewController@index');

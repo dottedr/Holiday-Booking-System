@@ -17,11 +17,5 @@ class HolidayRequest extends JsonResource
         return parent::toArray($request);
 
     }
-    //TODO:
-    public function with($request)
-    {
-        return [
-          'color'=>'#880e4f'
-        ];
-    }
+
 }
