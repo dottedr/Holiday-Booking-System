@@ -33,6 +33,7 @@ Route::get('/user','UserController@show');
 
 //show team view for admin
 Route::get('/team','UserController@index');
+Route::get('/team/{userid}','UserController@index');
 
 //show team member view
 //Route::get('/team/member', 'EmployeeController@view')->name('team.member');
