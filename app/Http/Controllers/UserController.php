@@ -28,8 +28,11 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index($userid=null)
-    {
-        return view('team', array("userid"=>$userid));
+    { if($userid==null){
+        return view('team', array("userid"=>$userid));}
+        else{
+        return view('employee',array("userid"=>$userid));
+        }
     }
 
     /**

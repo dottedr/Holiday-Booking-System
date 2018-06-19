@@ -18,7 +18,7 @@ class HolidayRequestController extends Controller
         $holiday = array_map(
             function($hol) { $hol['title']=$hol['user']['name']; unset($hol['user']); return $hol; }
             , HolidayRequest::with("user")->get()->toArray()
-        );
+        ); //TODO how to return only with status=accepted
         return Response()->json($holiday);
     }
 
@@ -40,17 +40,19 @@ class HolidayRequestController extends Controller
      */
     public function store(Request $request)
     {
-       $holidayrequest=$request->isMethod('put') ? HolidayRequest::findOrFail($request->id) : new HolidayRequest;
-        $holidayrequest->id = $request->input('id');
-        $holidayrequest->title = $request->input('start');
-        $holidayrequest->body = $request->input('end');
-        $holidayrequest->body = $request->input('body');
-        $holidayrequest->body = $request->input('title');
+        $request->validate([
+            'start' => 'required',
+            'end' => 'required',
+        ]);
 
-        if($holidayrequest->save()) {
-            return new HolidayRequestResource($holidayrequest);
-        }
-
+        $task = HolidayRequest::create([
+            'start' => $request->start,
+            'end' => $request->end,
+            'type'=>$request->type,
+            'status'=>$request->status,
+            'created_at' => $request->timestamp,
+            'updated_at' => $request->timesptamp]);
+        return $task;
     }
 
     /**

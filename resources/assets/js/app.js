@@ -30,7 +30,7 @@ import Calendar from './components/Calendar.vue';
 import NewRequest from './components/NewRequest.vue';
 import Team from './components/Team.vue';
 import EmployeeEdit from './components/EmployeeEdit.vue';
-
+import ViewRequests from './components/ViewRequests.vue';
 
 Vue.component('side-menu', SideMenu);
 Vue.component('admin-side-menu', AdminSideMenu);
@@ -39,7 +39,8 @@ Vue.component('user-data', UserData);
 Vue.component('calendar', Calendar);
 Vue.component('new-request', NewRequest);
 Vue.component('team', Team);
-
+Vue.component('employee-edit', EmployeeEdit);
+Vue.component('view-requests', ViewRequests);
 
 
 
