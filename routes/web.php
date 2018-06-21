@@ -74,3 +74,4 @@ Route::get('publicholiday/{id}','PublicHolidayController@show');
 
 //change password
 Route::get('changepassword','UserController@showPasswordForm');
+Route::post('/changePassworda','UserController@changePassword')->name('changePassworda');
