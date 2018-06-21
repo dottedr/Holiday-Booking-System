@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Auth\Middleware\Authenticate;
 use App\Http\Requests;
 use App\User;
+use App\Employee;
 use App\Http\Resources\User as EmployeeResource;
 use Illuminate\Support\Facades\Auth;
 
@@ -55,7 +56,16 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $employee = User::create([
+            'isadmin' => $request->isadmin,
+            'name' => $request->name,
+            'email'=>$request->email,
+            'password'=>$request->password,
+            'holiday_allowance'=>$request->holiday_allowance,
+            'role'=>$request->role,
+            'created_at' => $request->timestamp,
+            'updated_at' => $request->timesptamp]);
+        return $employee;
     }
 
     /**

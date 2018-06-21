@@ -69,7 +69,7 @@ class HolidayRequestController extends Controller
      */
     public function store(Request $request)
     {
-       /* $request->validate([
+        /*$request->validate([
             'start' => 'required',
             'end' => 'required',
         ]);*/
@@ -96,6 +96,7 @@ class HolidayRequestController extends Controller
     public function show($id)
     {
         $holiday = HolidayRequest::findOrFail($id);
+
         return Response()->json($holiday);
     }
 
@@ -117,9 +118,16 @@ class HolidayRequestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update( Request $request, $id)
     {
-        //
+        $request->validate([
+        'status' => 'required',
+    ]);
+
+        $holiday = HolidayRequest::find($id);
+        $holiday->status = $request->input('status');
+        $holiday->save;
+
     }
 
     /**

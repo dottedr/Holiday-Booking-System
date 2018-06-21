@@ -23,6 +23,7 @@ import SideMenu from './components/SideMenu.vue';
 import UserData from './components/UserData.vue';//dashboard with stats
 import Calendar from './components/Calendar.vue';
 
+import NewEmployee from './components/NewEmployee.vue';
 import Team from './components/Team.vue';
 import EmployeeEdit from './components/EmployeeEdit.vue';
 
@@ -36,7 +37,7 @@ Vue.component('side-menu', SideMenu);
 Vue.component('user-data', UserData);
 Vue.component('calendar', Calendar);
 
-//place for a template to create an employee
+Vue.component('new-employee', NewEmployee);
 Vue.component('team', Team);
 Vue.component('employee-edit', EmployeeEdit);
 

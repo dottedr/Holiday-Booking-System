@@ -35,6 +35,11 @@ class UserController extends Controller
         }
     }
 
+    public function newView($userid=null){
+
+        return view('newemployee');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
