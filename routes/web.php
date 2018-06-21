@@ -31,28 +31,43 @@ Route::get('/user','UserController@show');
 
 
 
-//show team view for admin
+//view team view for admin
 Route::get('/team','UserController@index');
+//view employee
 Route::get('/team/{userid}','UserController@index');
 
-//show team member view
-//Route::get('/team/member', 'EmployeeController@view')->name('team.member');
-
-//list employee TODO:how to get employee by id
-Route::get('/employee/{id}','EmployeeController@show');
-//list all employees, mock in user view
+//list all employees, data
 Route::get('/employees','EmployeeController@index');
+//list employee, data
+Route::get('team/employee/{userid}','EmployeeController@show');
 
 
 
+
+//view all requests for admin
+Route::get('/viewrequests', 'ManageRequestViewController@index');
+//view single request
+Route::get('/viewrequests/{hrequestid}', 'ManageRequestViewController@index');
+
+//list requests, data
+Route::get('/holidayrequests','HolidayRequestController@index');
+//list requests for calendar, data
+Route::get('holidayrequestscalendar','HolidayRequestController@indexCalendar');
+//list request, data
+Route::get('viewrequests/holidayrequest/{hrequestid}','HolidayRequestController@show');
+
+//view new requests
+Route::get('/viewrequests', 'ManageRequestViewController@index');
+//view single request
+Route::get('/viewrequests/{hrequestid}', 'ManageRequestViewController@index');
+
+
+//new request
+Route::post('newholidayrequest','HolidayRequestController@store');
+
+//public holidays data
 Route::get('publicholidays','PublicHolidayController@index');
 Route::get('publicholiday/{id}','PublicHolidayController@show');
 
-Route::get('holidayrequests','HolidayRequestController@index');//list for request view and calendar
-Route::get('holidayrequestscalendar','HolidayRequestController@indexCalendar');
-Route::get('holidayrequest/{id}','HolidayRequestController@show');
-
-Route::post('newholidayrequest','HolidayRequestController@store');
-
-//display new request view
-Route::get('/viewrequests', 'ManageRequestViewController@index');
+//change password
+Route::get('changepassword','UserController@indexPassword');

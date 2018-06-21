@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\HolidayRequest;
 use Illuminate\Http\Request;
 use App\Http\Resources\HolidayRequest as HolidayRequestResource;
+use Illuminate\Support\Facades\Auth;
 
 class HolidayRequestController extends Controller
 {
@@ -39,7 +40,7 @@ class HolidayRequestController extends Controller
             },
             HolidayRequest::with("user")->where('status', 'accepted')->get()->toArray()
         );
-        
+
         if (count($holiday)>0){
             return Response()->json($holiday);
         }
@@ -68,16 +69,19 @@ class HolidayRequestController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+       /* $request->validate([
             'start' => 'required',
             'end' => 'required',
-        ]);
+        ]);*/
+       $user = Auth::user();
+
 
         $task = HolidayRequest::create([
             'start' => $request->start,
             'end' => $request->end,
             'type'=>$request->type,
             'status'=>$request->status,
+            'created_by'=>$user->id,
             'created_at' => $request->timestamp,
             'updated_at' => $request->timesptamp]);
         return $task;
@@ -91,7 +95,8 @@ class HolidayRequestController extends Controller
      */
     public function show($id)
     {
-        //
+        $holiday = HolidayRequest::findOrFail($id);
+        return Response()->json($holiday);
     }
 
     /**

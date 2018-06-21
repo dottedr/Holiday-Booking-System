@@ -20,7 +20,7 @@ class EmployeeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth'); //admin?
+        $this->middleware('auth');
     }
 
 
@@ -30,7 +30,6 @@ class EmployeeController extends Controller
         if($isadmin==1) {
             $employee = User::all();
             return Response()->json(array("status"=>true, "data"=>$employee));
-            //return $employee;
         }
         else{
             return Response()->json(array("status"=>false));
@@ -67,8 +66,9 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
+
         $employee=User::findOrFail($id);
-        return $employee;
+        return Response()->json(array("status"=>true, "data"=>$employee));
     }
 
     /**

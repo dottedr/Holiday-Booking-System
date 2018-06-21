@@ -12,11 +12,6 @@ window.Vue = require('vue');
 import FullCalendar from 'vue-full-calendar'
 Vue.use(FullCalendar);
 
-/*
-import VueRouter from 'vue-router';
-Vue.use(VueRouter);
-*/
-
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -24,34 +19,30 @@ Vue.use(VueRouter);
  */
 
 import SideMenu from './components/SideMenu.vue';
-import AdminSideMenu from './components/AdminSideMenu.vue';
-import UserData from './components/UserData.vue';
+
+import UserData from './components/UserData.vue';//dashboard with stats
 import Calendar from './components/Calendar.vue';
-import NewRequest from './components/NewRequest.vue';
+
 import Team from './components/Team.vue';
 import EmployeeEdit from './components/EmployeeEdit.vue';
+
+import NewRequest from './components/NewRequest.vue';
 import ViewRequests from './components/ViewRequests.vue';
+import SingleRequest from './components/SingleRequest.vue';
+
 
 Vue.component('side-menu', SideMenu);
-Vue.component('admin-side-menu', AdminSideMenu);
 
 Vue.component('user-data', UserData);
 Vue.component('calendar', Calendar);
-Vue.component('new-request', NewRequest);
+
+//place for a template to create an employee
 Vue.component('team', Team);
 Vue.component('employee-edit', EmployeeEdit);
+
+Vue.component('new-request', NewRequest);
 Vue.component('view-requests', ViewRequests);
-
-
-
-/*
-const routes = [
-    {path: '/team', component: Team, name: 'team'},
-    {path: '/team/edit', component: EmployeeEdit, name: 'employeeEdit'},
-]
-const router = new VueRouter({ routes })
-const app = new Vue({ router }).$mount('#app')
-*/
+Vue.component('single-request', SingleRequest);
 
 
 const app = new Vue({

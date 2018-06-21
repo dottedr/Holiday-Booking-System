@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class HolidayRequest extends Model
 {
     protected $fillable = [
-        'start','end','type','status'
+        'start','end','type','status', 'created_by'
     ];
     public function user()
     {

@@ -9,11 +9,17 @@
             <li class="side-menu-home">
                 <a href="/home">Home</a>
             </li>
+            <li class="side-menu-home"v-if="user.isadmin">
+                <a href="/team">Manage employees</a>
+            </li>
+            <li class="side-menu-home"v-if="user.isadmin">
+                <a href="/viewrequests">Manage requests</a>
+            </li>
             <li class="side-menu-home">
                 <a href="/newrequest">New holiday request</a>
             </li>
             <li class="side-menu-home">
-                <a href="#">Change password</a>
+                <a href="/changepassword">Change password</a>
             </li>
             <li class="side-menu-item">
                 <form method="POST" class="route" id="logout_form" action="/logout">
@@ -62,7 +68,7 @@
             },
             fetchUser: function() {
                 fetch('user', { credentials: 'include' })
-                    .then(res => res.json())
+                    .then(res => res.json()) //glitch on team/id
                     .then(res => {
                         console.log(res.name);
                         console.log(res.id);
