@@ -4,11 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-
 use Illuminate\Auth\Middleware\Authenticate;
 use App\Http\Requests;
 use App\User;
-use App\Employee;
 use App\Http\Resources\User as EmployeeResource;
 use Illuminate\Support\Facades\Auth;
 

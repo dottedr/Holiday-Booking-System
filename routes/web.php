@@ -41,7 +41,7 @@ Route::get('/employees','EmployeeController@index');
 //list employee, data
 Route::get('team/employee/{userid}','EmployeeController@show');
 
-//new employee
+//new employee //TODO:why does not add to db?
 Route::post('newemployeerequest','EmployeeController@store');
 
 
@@ -73,4 +73,4 @@ Route::get('publicholidays','PublicHolidayController@index');
 Route::get('publicholiday/{id}','PublicHolidayController@show');
 
 //change password
-Route::get('changepassword','UserController@indexPassword');
+Route::get('changepassword','UserController@showPasswordForm');
