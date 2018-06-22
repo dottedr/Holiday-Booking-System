@@ -12,12 +12,7 @@
                 <p>{{user.holiday_allowance - user.holiday_taken}}</p>
             </div>
         </div>
-        <div class="col">
-            <div class="tile">
-                <p>Holiday pending</p>
-                <p>TBD</p>
-            </div>
-        </div>
+
         <div class="col">
             <div class="tile">
                 <p>Holiday taken</p>

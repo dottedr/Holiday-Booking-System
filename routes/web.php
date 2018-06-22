@@ -41,14 +41,14 @@ Route::get('/employees','EmployeeController@index');
 //list employee, data
 Route::get('team/employee/{userid}','EmployeeController@show');
 
-//new employee //TODO:why does not add to db?
+//new employee
 Route::post('newemployeerequest','EmployeeController@store');
 
 
 
 //view all requests for admin
 Route::get('/viewrequests', 'ManageRequestViewController@index');
-//view single request TODO:finish
+//view single request
 Route::get('/viewrequests/{hrequestid}', 'ManageRequestViewController@index');
 //view new request
 Route::get('/newrequest', 'NewRequestController@index')->name('newrequest');
@@ -61,10 +61,15 @@ Route::get('holidayrequestscalendar','HolidayRequestController@indexCalendar');
 Route::get('viewrequests/holidayrequest/{hrequestid}','HolidayRequestController@show');
 
 
+//view my requests
+Route::get('/myrequests', 'ManageRequestViewController@indexMyRequests');
+//list my requests
+Route::get('/myholidayrequests','HolidayRequestController@indexMyRequests');
+
 
 //new request
 Route::post('newholidayrequest','HolidayRequestController@store');
-//TODO:update request
+//update request
 Route::post('updateholidayrequest','HolidayRequestController@update');
 
 

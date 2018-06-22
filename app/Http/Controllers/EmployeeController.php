@@ -62,8 +62,8 @@ class EmployeeController extends Controller
             'holiday_allowance'=>$request->holiday_allowance,
             'role'=>$request->role,
             'created_at' => $request->timestamp,
-            'updated_at' => $request->timesptamp]);
-        return $employee;
+            'updated_at' => $request->timestamp]);
+        return Response()->json(array("status"=>true, "data"=>$employee));
     }
 
     /**

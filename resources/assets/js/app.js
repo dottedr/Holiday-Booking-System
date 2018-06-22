@@ -32,6 +32,9 @@ import ViewRequests from './components/ViewRequests.vue';
 import SingleRequest from './components/SingleRequest.vue';
 
 
+import MyRequests from './components/MyRequests.vue';
+
+
 Vue.component('side-menu', SideMenu);
 
 Vue.component('user-data', UserData);
@@ -44,6 +47,8 @@ Vue.component('employee-edit', EmployeeEdit);
 Vue.component('new-request', NewRequest);
 Vue.component('view-requests', ViewRequests);
 Vue.component('single-request', SingleRequest);
+
+Vue.component('my-requests', MyRequests);
 
 
 const app = new Vue({

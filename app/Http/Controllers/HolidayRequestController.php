@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\HolidayRequest;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use App\Http\Resources\HolidayRequest as HolidayRequestResource;
 use Illuminate\Support\Facades\Auth;
@@ -15,6 +16,7 @@ class HolidayRequestController extends Controller
      */
     public function index()//
     {
+        $user = Auth::user();
         //mapping title to user.name
         $holiday = array_map(
             function($hol)
@@ -22,7 +24,7 @@ class HolidayRequestController extends Controller
                 $hol['title']=$hol['user']['name'];
                 unset($hol['user']); return $hol;
                 },
-            HolidayRequest::with("user")->get()->toArray()
+            HolidayRequest::with("user")->whereNotIn('created_by',[$user->id])->get()->toArray()
         );
 
         return Response()->json($holiday);
@@ -51,6 +53,22 @@ class HolidayRequestController extends Controller
 
     }
 
+    public function indexMyRequests()//
+    {
+        $user = Auth::user();
+
+        //mapping title to user.name
+        $holiday = array_map(
+            function($hol)
+            {
+                $hol['title']=$hol['user']['name'];
+                unset($hol['user']); return $hol;
+            },
+            HolidayRequest::with("user")->where('created_by',$user->id)->get()->toArray()
+        );
+
+        return Response()->json($holiday);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -69,10 +87,10 @@ class HolidayRequestController extends Controller
      */
     public function store(Request $request)
     {
-        /*$request->validate([
+        $request->validate([
             'start' => 'required',
             'end' => 'required',
-        ]);*/
+        ]);
        $user = Auth::user();
 
 
@@ -118,16 +136,17 @@ class HolidayRequestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update( Request $request, $id)
+    public function update( Request $request)
     {
         $request->validate([
-        'status' => 'required',
+            'id' => 'required',
+            'status' => 'required',
     ]);
 
-        $holiday = HolidayRequest::find($id);
-        $holiday->status = $request->input('status');
-        $holiday->save;
-
+        $holiday = HolidayRequest::find($request->id);
+        $holiday->status = $request->status;
+        $holiday->save();
+        return Response()->json($holiday);
     }
 
     /**

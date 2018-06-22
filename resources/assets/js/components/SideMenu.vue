@@ -16,6 +16,9 @@
                 <a href="/viewrequests">Manage requests</a>
             </li>
             <li class="side-menu-home">
+                <a href="/myrequests">My requests</a>
+            </li>
+            <li class="side-menu-home">
                 <a href="/newrequest">New holiday request</a>
             </li>
             <li class="side-menu-home">
