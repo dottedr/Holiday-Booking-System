@@ -9,6 +9,8 @@ use App\Http\Requests;
 use App\User;
 use App\Http\Resources\User as EmployeeResource;
 use Illuminate\Support\Facades\Auth;
+use App\Mail\WelcomeMail;
+use Illuminate\Support\Facades\Mail;
 
 class EmployeeController extends Controller
 {
@@ -63,6 +65,7 @@ class EmployeeController extends Controller
             'role'=>$request->role,
             'created_at' => $request->timestamp,
             'updated_at' => $request->timestamp]);
+        Mail::to($request['email'])->send(new WelcomeMail($employee));
         return Response()->json(array("status"=>true, "data"=>$employee));
     }
 
