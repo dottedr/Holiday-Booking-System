@@ -151,9 +151,9 @@ class HolidayRequestController extends Controller
         $holiday->status = $request->status;
         $holiday->save();
 
-        $employee = \App\User::with();
+        //$employee = \App\User::with();
 
-        Mail::to($employee->email)->send(new DecisionMail($employee));
+       // Mail::to($employee->email)->send(new DecisionMail($employee));
 
         return Response()->json($holiday);
     }
