@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 use App\HolidayRequest;
 use App\Http\Resources\User;
+use AppUser;
 use App\Mail\DecisionMail;
 use http\Env\Response;
 use Illuminate\Http\Request;
 use App\Http\Resources\HolidayRequest as HolidayRequestResource;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class HolidayRequestController extends Controller
 {
@@ -148,7 +150,11 @@ class HolidayRequestController extends Controller
         $holiday = HolidayRequest::find($request->id);
         $holiday->status = $request->status;
         $holiday->save();
-        
+
+        $employee = \App\User::with();
+
+        Mail::to($employee->email)->send(new DecisionMail($employee));
+
         return Response()->json($holiday);
     }
 

@@ -10,7 +10,6 @@ use App\Http\Requests;
 use App\User;
 use App\Http\Resources\User as EmployeeResource;
 use Illuminate\Support\Facades\Auth;
-use App\Mail\WelcomeMail;
 use App\Mail\VerifyMail;
 use Illuminate\Support\Facades\Mail;
 
