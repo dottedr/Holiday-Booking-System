@@ -17,7 +17,7 @@ class User extends Authenticatable
      */
     protected $guard = 'web';
     protected $fillable = [
-        'isadmin','name',  'email', 'password', 'holiday_allowance', 'holidays_taken', 'comment', 'role'
+        'isadmin','verified','name',  'email', 'password', 'holiday_allowance', 'holidays_taken', 'comment', 'role'
     ];
 
     /**
@@ -32,4 +32,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\HolidayRequest', "id", "created_by");
     }
+    public function verifyUser()
+    {
+        return $this->hasOne('App\VerifyUser');
+    }
+
 }

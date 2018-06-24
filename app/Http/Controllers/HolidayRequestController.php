@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\HolidayRequest;
+use App\Http\Resources\User;
+use App\Mail\DecisionMail;
 use http\Env\Response;
 use Illuminate\Http\Request;
 use App\Http\Resources\HolidayRequest as HolidayRequestResource;
@@ -146,6 +148,7 @@ class HolidayRequestController extends Controller
         $holiday = HolidayRequest::find($request->id);
         $holiday->status = $request->status;
         $holiday->save();
+        
         return Response()->json($holiday);
     }
 

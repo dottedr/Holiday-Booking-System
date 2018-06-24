@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\VerifyUser;
 use Illuminate\Http\Request;
 
 use Illuminate\Auth\Middleware\Authenticate;
@@ -10,6 +11,7 @@ use App\User;
 use App\Http\Resources\User as EmployeeResource;
 use Illuminate\Support\Facades\Auth;
 use App\Mail\WelcomeMail;
+use App\Mail\VerifyMail;
 use Illuminate\Support\Facades\Mail;
 
 class EmployeeController extends Controller
@@ -58,6 +60,7 @@ class EmployeeController extends Controller
     {
         $employee = User::create([
             'isadmin' => $request->isadmin,
+            'verified'=> $request->verified,
             'name' => $request->name,
             'email'=>$request->email,
             'password'=>$request->password,
@@ -65,8 +68,33 @@ class EmployeeController extends Controller
             'role'=>$request->role,
             'created_at' => $request->timestamp,
             'updated_at' => $request->timestamp]);
-        Mail::to($request['email'])->send(new WelcomeMail($employee));
+        //Mail::to($request['email'])->send(new WelcomeMail($employee));
+
+        $verifyUser = VerifyUser::create([
+            'user_id' => $employee->id,
+            'token' => str_random(40)]);
+
+        Mail::to($employee->email)->send(new VerifyMail($employee));
+
         return Response()->json(array("status"=>true, "data"=>$employee));
+    }
+
+    public function verifyUser($token)
+    {
+        $verifyUser = VerifyUser::where('token', $token)->first();
+        if(isset($verifyUser) ){
+            $user = $verifyUser->user;
+            if(!$user->verified) {
+                $verifyUser->user->verified = 1;
+                $verifyUser->user->save();
+                $status = "Your e-mail is verified. You can now login.";
+            }else{
+                $status = "Your e-mail is already verified. You can now login.";
+            }
+        }else{
+            return redirect('/login')->with('warning', "Sorry your email cannot be identified.");
+        }
+        return redirect('/login')->with('status', $status);
     }
 
     /**
