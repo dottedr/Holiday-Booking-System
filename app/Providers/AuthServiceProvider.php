@@ -27,14 +27,12 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-        //TODO custom routing
         //viaRequest(guard name,Closure that receives the incoming HTTP request and returns a user instance or, if authentication fails, null)
         Auth::viaRequest('admin-guard', function ($request)
         {
 
             $user = Auth::user();
             return !empty($user->isadmin)? $user : null;
-            die(print_r($user));
         });
     }
 }

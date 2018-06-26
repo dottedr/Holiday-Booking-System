@@ -28,27 +28,28 @@ Route::get('/user','UserController@show');
 
 
 
-//view team view for admin
-Route::get('/team','UserController@index');
-//view employee
-Route::get('/team/{userid}','UserController@index');
-//view new employee
-Route::get('/newemployee','UserController@newView');
+//view team view  auth:admin
+Route::get('/team','EmployeeController@indexView');
+//view employee  auth:admin
+Route::get('/team/{userid}','EmployeeController@indexView');
+//view new employee auth:admin
+Route::get('/newemployee','EmployeeController@newView');
 
-//list all employees, data
+//list all employees, data auth:admin
 Route::get('/employees','EmployeeController@index');
-//list employee, data
+//list employee, data auth:admin
 Route::get('team/employee/{userid}','EmployeeController@show');
 
-//new employee
+//new employee auth:admin
 Route::post('newemployeerequest','EmployeeController@store');
 
 
 
-//view all requests for admin
+//view all requests for admin auth:admin
 Route::get('/viewrequests', 'ManageRequestViewController@index');
-//view single request
+//view single request  auth:admin
 Route::get('/viewrequests/{hrequestid}', 'ManageRequestViewController@index');
+
 //view new request
 Route::get('/newrequest', 'NewRequestController@index')->name('newrequest');
 
@@ -81,4 +82,4 @@ Route::get('changepassword','UserController@showPasswordForm');
 Route::post('/changePassworda','UserController@changePassword')->name('changePassworda');
 
 //registration
-Route::get('/user/verify/{token}', 'EmployeeController@verifyUser');
+Route::get('/user/verify/{token}', 'UserController@verifyUser');
