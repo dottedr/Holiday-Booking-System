@@ -12,6 +12,7 @@ class DecisionMail extends Mailable
     use Queueable, SerializesModels;
 
     public $user;
+    public $decision;
     /**
      * Create a new message instance.
      *

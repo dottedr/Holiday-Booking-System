@@ -18,7 +18,7 @@
 
             </div>
             <div class="row" v-for="request in requests" v-bind:key="request.id">
-                
+
                 <div class="col">
                     {{request.start}}
                 </div>

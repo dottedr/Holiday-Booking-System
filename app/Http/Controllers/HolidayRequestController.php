@@ -150,10 +150,11 @@ class HolidayRequestController extends Controller
         $holiday = HolidayRequest::find($request->id);
         $holiday->status = $request->status;
         $holiday->save();
+        $empid = $holiday->created_by;
+        //get id of the employee who posted the request
+        $employee = \App\User::find($empid);
 
-        //$employee = \App\User::with();
-
-       // Mail::to($employee->email)->send(new DecisionMail($employee));
+        Mail::to($employee->email)->send(new DecisionMail($employee));
 
         return Response()->json($holiday);
     }
