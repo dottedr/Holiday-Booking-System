@@ -10,7 +10,7 @@ class AdminLoginController extends Controller
 {
    public function __construct()
    {
-       $this->middleware('guest:admin');
+       $this->middleware('guest');
    }
 
     public function showLoginForm()
@@ -29,7 +29,6 @@ class AdminLoginController extends Controller
        //attempt to log the user in
        if(Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember))
        {
-
            //if successful, redirect to their intended location
            return redirect()->intended(route('admin.dashboard'));
        }

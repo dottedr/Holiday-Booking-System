@@ -43,13 +43,9 @@ return [
             'provider' => 'users',
         ],
 
-        'admin' => [
-            'driver' => 'session',
-            'provider' => 'admins',
-        ],
         //TODO: finish custom routing
-        'employee' => [
-            'driver'=>'employee',
+        'admin' => [
+            'driver' => 'admin-guard',
         ],
 
         'api' => [
