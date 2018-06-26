@@ -22,6 +22,7 @@ class RedirectIfAuthenticated
             case 'admin':
                 if (Auth::guard($guard)->check()){
                 return redirect()->route('admin.dashboard');
+                //admin.dashboard is a name for '/admin', 'AdminController@index
                 }
                 break;
             default:
@@ -31,9 +32,6 @@ class RedirectIfAuthenticated
                 break;
 
         }
-        //if (Auth::guard($guard)->check()) {
-        //    return redirect('/home');
-        //}
 
         return $next($request);
     }

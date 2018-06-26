@@ -47,6 +47,10 @@ return [
             'driver' => 'session',
             'provider' => 'admins',
         ],
+        //TODO: finish custom routing
+        'employee' => [
+            'driver'=>'employee',
+        ],
 
         'api' => [
             'driver' => 'token',

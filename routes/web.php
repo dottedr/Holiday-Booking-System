@@ -57,7 +57,7 @@ Route::get('/newrequest', 'NewRequestController@index')->name('newrequest');
 Route::get('/holidayrequests','HolidayRequestController@index');
 //list requests for calendar, data
 Route::get('holidayrequestscalendar','HolidayRequestController@indexCalendar');
-//list request, data
+//TODO: listing request, data
 Route::get('viewrequests/holidayrequest/{hrequestid}','HolidayRequestController@show');
 
 

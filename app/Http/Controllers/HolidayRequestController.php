@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Mail;
 class HolidayRequestController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the holiday requests, apart from yours.
      *
      * @return \Illuminate\Http\Response
      */
@@ -95,7 +95,7 @@ class HolidayRequestController extends Controller
             'start' => 'required',
             'end' => 'required',
         ]);
-       $user = Auth::user();
+        $user = Auth::user();
 
 
         $task = HolidayRequest::create([
@@ -115,26 +115,16 @@ class HolidayRequestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id)//TODO: make a view for each request
     {
         $holiday = HolidayRequest::findOrFail($id);
 
         return Response()->json($holiday);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
-     * Update the specified resource in storage.
+     * Update the request status and send email with decision.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
