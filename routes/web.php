@@ -71,8 +71,11 @@ Route::get('/myholidayrequests','HolidayRequestController@indexMyRequests');
 Route::post('newholidayrequest','HolidayRequestController@store');
 //update request
 Route::post('updateholidayrequest','HolidayRequestController@update');
-//post comment to holiday request // TODO: decide whether use 1 f for all users or separate
-Route::post('commentholidayrequest','HolidayRequestController@comment');
+
+//post comment to holiday request
+Route::post('commentholidayrequest','CommentController@create');
+//list comments
+Route::get('viewrequest/getcomments/{id}','CommentController@indexForAdmin');
 
 
 //public holidays data

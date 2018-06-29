@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Comment;
 use App\HolidayRequest;
 use App\Http\Resources\User;
 use AppUser;
@@ -156,20 +155,6 @@ class HolidayRequestController extends Controller
         return Response()->json($holiday);
     }
 
-    protected function comment(Request $request){
-
-        $user = Auth::user();
-
-        $comment = Comment::create([
-            'id' => $request->id,
-            'comment' => $request->comment,
-            'author' =>$user->id,
-            'request_id' =>$request->request_id,
-            'created_at' => $request->timestamp,
-            'updated_at' => $request->timesptamp]);
-
-        return $comment;
-    }
 
     /**
      * Remove the specified resource from storage.
