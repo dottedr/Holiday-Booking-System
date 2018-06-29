@@ -49,7 +49,7 @@ Route::post('newemployeerequest','EmployeeController@store');
 //view all requests for admin
 Route::get('/viewrequests', 'ManageRequestViewController@index');
 //view single request
-Route::get('/viewrequests/{hrequestid}', 'ManageRequestViewController@index');
+Route::get('/viewrequest/{hrequestid}', 'ManageRequestViewController@index');
 //view new request
 Route::get('/newrequest', 'NewRequestController@index')->name('newrequest');
 
@@ -58,7 +58,7 @@ Route::get('/holidayrequests','HolidayRequestController@index');
 //list requests for calendar, data
 Route::get('holidayrequestscalendar','HolidayRequestController@indexCalendar');
 //list request, data
-Route::get('viewrequests/holidayrequest/{hrequestid}','HolidayRequestController@show');
+Route::get('viewrequest/holidayrequest/{hrequestid}','HolidayRequestController@show');
 
 
 //view my requests
@@ -71,6 +71,8 @@ Route::get('/myholidayrequests','HolidayRequestController@indexMyRequests');
 Route::post('newholidayrequest','HolidayRequestController@store');
 //update request
 Route::post('updateholidayrequest','HolidayRequestController@update');
+//post comment to holiday request // TODO: decide whether use 1 f for all users or separate
+Route::post('commentholidayrequest','HolidayRequestController@comment');
 
 
 //public holidays data

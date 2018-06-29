@@ -17,6 +17,7 @@ class CreateCommentsTable extends Migration
             $table->increments('id');
             $table->text('comment');
             $table->integer('author');
+            $table->integer('request_id');
             $table->enum('status', ['pending', 'rejected', 'accepted']);
             $table->timestamps();
 
