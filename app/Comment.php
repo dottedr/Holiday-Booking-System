@@ -10,6 +10,9 @@ class Comment extends Model
         'comment','author','status','request_id'
     ];
     public function holidayRequest(){
-        return $this->belongsTo('App\HolidayRequest','author', "id");
+        return $this->belongsTo('App\HolidayRequest','request_id', "id");
+    }
+    public function user(){
+        return $this->belongsTo('App\User','author', "id");
     }
 }

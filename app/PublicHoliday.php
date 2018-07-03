@@ -12,4 +12,9 @@ class PublicHoliday extends Model
         'name','date','type',
     ];
 
+    public function user()
+    {
+        return $this->belongsTo('App\User', "id", "name");
+    }
+
 }

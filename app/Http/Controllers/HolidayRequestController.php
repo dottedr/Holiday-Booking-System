@@ -112,7 +112,7 @@ class HolidayRequestController extends Controller
      */
     public function show($id)
     {
-        $holiday = HolidayRequest::findOrFail($id);
+        $holiday = HolidayRequest::with('user')->findOrFail($id);
 
 
         return Response()->json($holiday);

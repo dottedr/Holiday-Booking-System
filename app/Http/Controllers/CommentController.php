@@ -12,7 +12,7 @@ use App\HolidayRequest;
 class CommentController extends Controller
 {
     public function indexForAdmin($id){
-
+        
         $holiday_request = HolidayRequest::find($id);
         $id=$holiday_request->id;
         $comments=Comment::with('HolidayRequest')->where('request_id', $id)->get()->toArray();

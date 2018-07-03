@@ -15,6 +15,6 @@ class HolidayRequest extends Model
     }
     public function comment()
     {
-        return $this->hasMany('App\Comment', 'id','author');
+        return $this->hasMany('App\Comment', 'author','id');
     }
 }
