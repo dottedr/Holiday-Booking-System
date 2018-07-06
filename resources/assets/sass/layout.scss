@@ -139,11 +139,18 @@ input:focus ~ .highlight {
   padding-right: 10px;
 }
 .comment-textfield{
-  height: 50px;
   width: 100%;
   border:solid #80cbc4;
   color: #e0f2f1;
   background:inherit;
-  margin-bottom: 10px;
+}
+input, button{
+  border:solid #80cbc4;
+  color: #e0f2f1;
+  background:inherit;
 }
 
+.submit-button{
+  width: 200px;
+  float: right;
+}
