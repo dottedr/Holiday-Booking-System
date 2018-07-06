@@ -21,6 +21,7 @@ Vue.use(FullCalendar);
 import SideMenu from './components/SideMenu.vue';
 
 import UserData from './components/UserData.vue';//dashboard with stats
+//import vmodal from 'vue-js-modal'
 import Calendar from './components/Calendar.vue';
 
 import NewEmployee from './components/NewEmployee.vue';
@@ -33,7 +34,9 @@ import SingleRequest from './components/SingleRequest.vue';
 
 
 import MyRequests from './components/MyRequests.vue';
+import CommentPopUp from './components/CommentPopUp.vue';
 
+//Vue.use(vmodal);
 
 Vue.component('side-menu', SideMenu);
 
@@ -49,7 +52,7 @@ Vue.component('view-requests', ViewRequests);
 Vue.component('single-request', SingleRequest);
 
 Vue.component('my-requests', MyRequests);
-
+Vue.component('comment-pop-up', CommentPopUp);
 
 const app = new Vue({
         el: '#app'

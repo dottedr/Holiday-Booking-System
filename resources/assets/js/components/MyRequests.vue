@@ -1,5 +1,6 @@
 <template>
     <div>
+
         <h1>My Requests</h1>
         <div class="outline">
             <div class="row">
@@ -15,7 +16,9 @@
                 <div class="col">
                     Status
                 </div>
-
+                <div class="col">
+                    Comment
+                </div>
             </div>
             <div class="row" v-for="request in requests" v-bind:key="request.id">
 
@@ -31,6 +34,11 @@
                 <div class="col">
                     {{request.status}}
                 </div>
+                <div class="col">
+                    <button id="show-modal" @click="showModal = true">Comment</button>
+                    <comment-pop-up v-if="showModal" @close="showModal = false">
+                    </comment-pop-up>
+                </div>
 
             </div>
         </div>
@@ -38,7 +46,12 @@
 </template>
 
 <script>
+    import CommentPopUp from './CommentPopUp.vue';
+
     export default {
+        components: {
+            'comment-pop-up': CommentPopUp
+        },
         name: "my-requests",
         data: function () {
             return {
@@ -50,7 +63,8 @@
                     type: '',
                     status: '',
                     title: ''
-                }
+                },
+                showModal:false
             }
         },
         created: function () {
@@ -68,7 +82,8 @@
 
                     })
             },
-        }
+        },
+
     }
 </script>
 
