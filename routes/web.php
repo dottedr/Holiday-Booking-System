@@ -63,8 +63,13 @@ Route::get('viewrequest/holidayrequest/{hrequestid}','HolidayRequestController@s
 
 //view my requests
 Route::get('/myrequests', 'ManageRequestViewController@indexMyRequests');
+//view a single request
+Route::get('/myrequest/{id}', 'ManageRequestViewController@indexMyRequests');
+
 //list my requests
 Route::get('/myholidayrequests','HolidayRequestController@indexMyRequests');
+//list my chosen request, data
+Route::get('myrequest/myholidayrequest','HolidayRequestController@showMyRequests');
 
 
 //new request

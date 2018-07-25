@@ -74,6 +74,15 @@ class HolidayRequestController extends Controller
         return Response()->json($holiday);
     }
 
+    public function showMyRequests($id)//
+    {
+        $user = Auth::user();
+
+        $holiday = HolidayRequest::with('user')->findOrFail($id);
+
+
+        return Response()->json($holiday);
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -118,16 +127,6 @@ class HolidayRequestController extends Controller
         return Response()->json($holiday);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.

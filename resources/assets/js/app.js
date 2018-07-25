@@ -32,9 +32,9 @@ import NewRequest from './components/NewRequest.vue';
 import ViewRequests from './components/ViewRequests.vue';
 import SingleRequest from './components/SingleRequest.vue';
 
+import MySingleRequest from './components/MySingleRequest.vue';
 
 import MyRequests from './components/MyRequests.vue';
-import CommentPopUp from './components/CommentPopUp.vue';
 
 //Vue.use(vmodal);
 
@@ -52,7 +52,7 @@ Vue.component('view-requests', ViewRequests);
 Vue.component('single-request', SingleRequest);
 
 Vue.component('my-requests', MyRequests);
-Vue.component('comment-pop-up', CommentPopUp);
+Vue.component('my-single-request', MySingleRequest)
 
 const app = new Vue({
         el: '#app'

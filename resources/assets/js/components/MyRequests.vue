@@ -17,11 +17,11 @@
                     Status
                 </div>
                 <div class="col">
-                    Comment
+                    Edit
                 </div>
             </div>
-            <div class="row" v-for="request in requests" v-bind:key="request.id">
 
+            <div class="row" v-for="request in requests" v-bind:key="request.id">
                 <div class="col">
                     {{request.start}}
                 </div>
@@ -35,23 +35,15 @@
                     {{request.status}}
                 </div>
                 <div class="col">
-                    <button id="show-modal" @click="showModal = true">Comment</button>
-                    <comment-pop-up v-if="showModal" @close="showModal = false">
-                    </comment-pop-up>
+                    <a v-bind:href="'/myrequest/'+request.id">Edit</a>
                 </div>
-
             </div>
         </div>
     </div>
 </template>
 
 <script>
-    import CommentPopUp from './CommentPopUp.vue';
-
     export default {
-        components: {
-            'comment-pop-up': CommentPopUp
-        },
         name: "my-requests",
         data: function () {
             return {
@@ -86,7 +78,3 @@
 
     }
 </script>
-
-<style scoped>
-
-</style>
