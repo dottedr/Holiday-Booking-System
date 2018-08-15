@@ -1,0 +1,156 @@
+.gradient
+{
+  background: linear-gradient(135deg, #4e4475, #288da9);;
+  color: #e0f2f1;
+  min-height: 100vh;
+}
+.container{
+  max-width: 900px;
+}
+.card-body
+{
+  padding-top: 300px;
+}
+/*
+input 				{
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:500px;
+  border:none;
+  border-bottom:1px solid #e0f2f1;
+  background: transparent;
+}
+input:focus 		{ outline:none; }
+
+!* LABEL ======================================= *!
+label 				 {
+  color:#e0f2f1;
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+
+!* active state *!
+input:focus ~ label, input:valid ~ label 		{
+  top:-20px;
+  font-size:14px;
+  color:#80cbc4;
+}
+
+!* BOTTOM BARS ================================= *!
+.bar 	{ position:relative; display:block; width:500px; }
+.bar:before, .bar:after 	{
+  content:'';
+  height:2px;
+  width:0;
+  bottom:1px;
+  position:absolute;
+  background:#80cbc4;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%;
+}
+
+!* active state *!
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}
+
+!* HIGHLIGHTER ================================== *!
+.highlight {
+  position:absolute;
+  height:60%;
+  width:100px;
+  top:25%;
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+!* active state *!
+input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+!* ANIMATIONS ================ *!
+@-webkit-keyframes inputHighlighter {
+  from { background:#80cbc4; }
+  to 	{ width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+  from { background:#80cbc4; }
+  to 	{ width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+  from { background:#80cbc4; }
+  to 	{ width:0; background:transparent; }
+}
+.btn
+{
+  border-radius: 0px;
+}
+.turquoise
+{
+  color: #80cbc4;
+  border-color: #80cbc4;
+  width: 500px;
+
+}
+.turquoise:hover{
+  background-color: #80cbc4;
+}*/
+
+.tile{
+  border: solid #80cbc4;
+  height: 200px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.outline{
+  border: solid #80cbc4;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.row {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+.comment{
+  border: dotted #80cbc4 1px;
+  margin-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.comment-textfield{
+  width: 100%;
+  border:solid #80cbc4;
+  color: #e0f2f1;
+  background:inherit;
+}
+input, button{
+  border:solid #80cbc4;
+  color: #e0f2f1;
+  background:inherit;
+}
+
+.submit-button{
+  width: 200px;
+  float: right;
+}

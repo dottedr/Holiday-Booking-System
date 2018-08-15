@@ -7,8 +7,20 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+//
+// general layout
+@import 'layout';
+
+// side menu
+@import 'side-menu';
+
+// welcome page
+@import 'welcome';
+
+//pop up comment
+@import 'pop-up';
 
 .navbar-laravel {
-  background-color: #fff;
+  background-color: #384a81;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }

@@ -13,9 +13,11 @@ class User extends Authenticatable
      * The attributes that are mass assignable.
      *
      * @var array
+     *
      */
+    protected $guard = 'web';
     protected $fillable = [
-        'name', 'email', 'password',
+        'isadmin','verified','name',  'email', 'password', 'holiday_allowance', 'holidays_taken', 'comment', 'role'
     ];
 
     /**
@@ -26,4 +28,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    public function holidayRequest()
+    {
+        return $this->hasMany('App\HolidayRequest', "id", "created_by");
+    }
+    public function verifyUser()
+    {
+        return $this->hasOne('App\VerifyUser');
+    }
+
 }

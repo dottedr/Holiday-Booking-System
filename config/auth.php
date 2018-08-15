@@ -18,6 +18,8 @@ return [
         'passwords' => 'users',
     ],
 
+
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards
@@ -39,6 +41,11 @@ return [
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
+        ],
+
+        //TODO: finish custom routing
+        'admin' => [
+            'driver' => 'admin-guard',
         ],
 
         'api' => [
@@ -64,12 +71,14 @@ return [
     |
     */
 
+    //use eloquent
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
 
+        //use query builder
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -97,6 +106,7 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
         ],
+
     ],
 
 ];
