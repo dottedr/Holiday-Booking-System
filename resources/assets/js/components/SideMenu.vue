@@ -70,7 +70,7 @@
                 }
             },
             fetchUser: function() {
-                fetch('user', { credentials: 'include' })
+                fetch('/user', { credentials: 'include' })
                     .then(res => res.json()) //glitch on team/id
                     .then(res => {
                         console.log(res.name);

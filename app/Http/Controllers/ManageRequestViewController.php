@@ -16,25 +16,32 @@ class ManageRequestViewController extends Controller
         $this->middleware('auth:admin');
     }
     /**
-     * Show the application dashboard.
+     * Show employees requests
      *
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function index($hrequestid=null)
     {
         if($hrequestid==null){
-        //TODO: return only to admin
             return view('viewrequests', array("hrequestid"=>$hrequestid));
         }
         else{
             return view('singlerequest', array("hrequestid"=>$hrequestid));
         }
     }
+    /**
+     * Show your requests
+     *
+     * @return view
+     */
     public function indexMyRequests($hrequestid=null)
     {
-        return view('myrequests');
+        if($hrequestid==null){
+            return view('myrequests', array("hrequestid"=>$hrequestid));
+        }
+        else{
+            return view('mysinglerequest', array("hrequestid"=>$hrequestid));
+        }
     }
-
-
 
 }

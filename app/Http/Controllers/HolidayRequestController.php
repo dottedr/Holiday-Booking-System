@@ -73,16 +73,16 @@ class HolidayRequestController extends Controller
 
         return Response()->json($holiday);
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
+    public function showMyRequests($id)//
+    {
+        $user = Auth::user();
+
+        $holiday = HolidayRequest::with('user')->findOrFail($id);
+
+
+        return Response()->json($holiday);
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -106,6 +106,10 @@ class HolidayRequestController extends Controller
             'created_by'=>$user->id,
             'created_at' => $request->timestamp,
             'updated_at' => $request->timesptamp]);
+        /*if(preg_match('([2][0][1][8-9]-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))', $request->get('start'))
+        {
+            return redirect()->back()->with("error","Error in data format");
+        }*/
         return $task;
     }
 
@@ -117,7 +121,8 @@ class HolidayRequestController extends Controller
      */
     public function show($id)//TODO: make a view for each request
     {
-        $holiday = HolidayRequest::findOrFail($id);
+        $holiday = HolidayRequest::with('user')->findOrFail($id);
+
 
         return Response()->json($holiday);
     }
@@ -148,6 +153,7 @@ class HolidayRequestController extends Controller
 
         return Response()->json($holiday);
     }
+
 
     /**
      * Remove the specified resource from storage.

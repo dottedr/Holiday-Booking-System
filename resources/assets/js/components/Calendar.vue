@@ -19,11 +19,7 @@
                     eventRender: function(event, element) {
                         console.log(event)
                     },
-                    /*  //log a click
-                        dayClick:function(date) {
-                        console.log('clicked ' + date.format());
 
-                    },*/
                 },
             };
 

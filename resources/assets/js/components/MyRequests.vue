@@ -1,5 +1,6 @@
 <template>
     <div>
+
         <h1>My Requests</h1>
         <div class="outline">
             <div class="row">
@@ -15,10 +16,12 @@
                 <div class="col">
                     Status
                 </div>
-
+                <div class="col">
+                    Edit
+                </div>
             </div>
-            <div class="row" v-for="request in requests" v-bind:key="request.id">
 
+            <div class="row" v-for="request in requests" v-bind:key="request.id">
                 <div class="col">
                     {{request.start}}
                 </div>
@@ -31,7 +34,9 @@
                 <div class="col">
                     {{request.status}}
                 </div>
-
+                <div class="col">
+                    <a v-bind:href="'/myrequest/'+request.id">Edit</a>
+                </div>
             </div>
         </div>
     </div>
@@ -50,7 +55,8 @@
                     type: '',
                     status: '',
                     title: ''
-                }
+                },
+                showModal:false
             }
         },
         created: function () {
@@ -68,10 +74,7 @@
 
                     })
             },
-        }
+        },
+
     }
 </script>
-
-<style scoped>
-
-</style>

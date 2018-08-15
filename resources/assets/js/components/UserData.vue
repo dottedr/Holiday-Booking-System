@@ -1,22 +1,23 @@
 <template>
-    <div class="row">
-        <div class="col">
-            <div class="tile">
-                <p>Holiday allowance</p>
-                <p>{{user.holiday_allowance}}</p>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="tile">
+                    <h4>Holiday allowance</h4>
+                    <h4>{{user.holiday_allowance}}</h4>
+                </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="tile">
-                <p>Holiday left</p>
-                <p>{{user.holiday_allowance - user.holiday_taken}}</p>
+            <div class="col">
+                <div class="tile">
+                    <h4>Holiday left</h4>
+                    <h4>{{user.holiday_allowance - user.holiday_taken}}</h4>
+                </div>
             </div>
-        </div>
-
-        <div class="col">
-            <div class="tile">
-                <p>Holiday taken</p>
-                <p>{{user.holiday_taken}}</p>
+            <div class="col">
+                <div class="tile">
+                    <h4>Holiday taken</h4>
+                    <h4>{{user.holiday_taken}}</h4>
+                </div>
             </div>
         </div>
     </div>

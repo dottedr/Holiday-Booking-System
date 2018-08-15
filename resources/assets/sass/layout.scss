@@ -1,6 +1,6 @@
 .gradient
 {
-  background: linear-gradient(135deg, #4e4475, #2c5975);;
+  background: linear-gradient(135deg, #4e4475, #288da9);;
   color: #e0f2f1;
   min-height: 100vh;
 }
@@ -131,4 +131,26 @@ input:focus ~ .highlight {
 .row {
   padding-bottom: 20px;
   padding-top: 20px;
+}
+.comment{
+  border: dotted #80cbc4 1px;
+  margin-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.comment-textfield{
+  width: 100%;
+  border:solid #80cbc4;
+  color: #e0f2f1;
+  background:inherit;
+}
+input, button{
+  border:solid #80cbc4;
+  color: #e0f2f1;
+  background:inherit;
+}
+
+.submit-button{
+  width: 200px;
+  float: right;
 }

@@ -5,7 +5,7 @@
     <side-menu></side-menu>
 
     <div class="container">
-        <my-requests></my-requests>
+        <my-requests id="{{$hrequestid}}"></my-requests>
 
         <calendar></calendar>
         </div>
