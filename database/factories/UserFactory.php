@@ -16,7 +16,6 @@ use Faker\Generator as Faker;
 $factory->define(App\User::class, function (Faker $faker) {
     return array(
         'name' => $faker->name,
-        'isadmin'=>$faker->regexify('[0,1]'),
         'email' => $faker->unique()->safeEmail,
         'holiday_allowance' => $faker->numberBetween(30,32),
         'holiday_taken' =>$faker->numberBetween(2,30),

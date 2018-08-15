@@ -19,6 +19,6 @@ $factory->define(App\PublicHoliday::class, function (Faker $faker) {
         'start' => $faker->dateTimeBetween($startDate = '-1 year', $endDate = 'now', $timezone = null),
         'end' => $faker->$startDate = '-1 year', $endDate = 'now', $timezone = null,
         'color' => $faker->hexColor(),
-        'duration' => $faker->numberBetween(1,3)
+
     );
 });
