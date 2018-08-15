@@ -37,5 +37,4 @@ Other functionalities:
 - User verification
  
 
-![Alt Text](https://media.giphy.com/media/bpL9GatLFe12RDQMic/giphy.gif)
-
+![holidaysys](https://user-images.githubusercontent.com/15862104/44147477-3b8b5a86-a08c-11e8-9dba-2ac0b50fec95.gif)
